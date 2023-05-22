@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:taesmet/components/appbar.dart';
 import 'package:taesmet/components/buttons/green_button.dart';
 import 'package:taesmet/components/buttons/main_button.dart';
-import 'package:taesmet/components/navbar.dart';
 import 'package:intl/intl.dart';
 import 'package:timezone/standalone.dart' as tz;
 
@@ -19,7 +18,6 @@ class _RecomendationPageState extends State<RecomendationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Navbar(),
       appBar: MyAppBar(fecha: _fecha),
       body: Center(
         child: Column(
@@ -42,7 +40,7 @@ class _RecomendationPageState extends State<RecomendationPage> {
                 ),
                 child: Column(children: const [
                   Padding(
-                    padding: EdgeInsets.only(top:10.0),
+                    padding: EdgeInsets.only(top: 10.0),
                     child: Text(
                       "Recomendaciones",
                       style: TextStyle(
@@ -65,7 +63,7 @@ class _RecomendationPageState extends State<RecomendationPage> {
             const GreenButton(
               titulo: "Empezar",
               sizeFont: 25,
-              redirection: "",
+              redirection: "pausa",
             ),
             const MainButtons()
           ],

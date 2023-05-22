@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class MyAppBar extends StatelessWidget with PreferredSizeWidget {
   const MyAppBar({
     super.key,
@@ -10,6 +11,13 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      leading: Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(Icons.arrow_back))),
       actions: <Widget>[
         Padding(
           padding: const EdgeInsets.only(right: 20.0),
@@ -17,14 +25,14 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
               alignment: Alignment.center,
               child: Text(
                 _fecha,
-                style: const TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 18),
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               )),
         )
       ],
     );
   }
+
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
-
 }

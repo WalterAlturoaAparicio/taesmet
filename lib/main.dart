@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:taesmet/pages/control_page.dart';
+import 'package:taesmet/pages/finish_page.dart';
 import 'package:taesmet/pages/home_page.dart';
+import 'package:taesmet/pages/notification_page.dart';
+import 'package:taesmet/pages/pausa_page.dart';
 import 'package:taesmet/pages/recomendation_page.dart';
+import 'package:taesmet/services/cron.service.dart';
+import 'package:taesmet/services/notification.service.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   tz.initializeTimeZones();
+  await initNotifications();
+  initCron();
   runApp(const MyApp());
 }
 
@@ -24,7 +31,10 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const MyHomePage(),
         '/control': (context) => const ControlPage(),
-        '/recomendation': (context)=> const RecomendationPage()
+        '/recomendation': (context)=> const RecomendationPage(),
+        '/notification': (context)=> const NotificationPage(),
+        '/pausa': (context)=> const PausaPage(),
+        '/finish': (context)=> const FinishPage(),
       }
     );
   }

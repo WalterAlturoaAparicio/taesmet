@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:taesmet/components/Navbar.dart';
-import 'package:taesmet/components/appbar.dart';
+import 'package:taesmet/components/appbar_home.dart';
 import 'package:taesmet/components/buttons/green_button.dart';
 import 'package:taesmet/components/buttons/main_button.dart';
 import 'package:timezone/standalone.dart' as tz;
@@ -20,16 +20,19 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const Navbar(),
-      appBar: MyAppBar(fecha: _fecha),
+      appBar: MyAppBarHome(fecha: _fecha),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             const Text(
-              "Hola USUARIO",
+              "Hola",
               style: TextStyle(fontSize: 30),
             ),
-            const GreenButton(titulo: "Iniciar jornada",sizeFont: 25, redirection: "recomendation"),
+            const GreenButton(
+                titulo: "Iniciar jornada",
+                sizeFont: 25,
+                redirection: "recomendation"),
             Image.asset(
               "assets/images/logo.png",
               height: 280,
@@ -41,5 +44,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-

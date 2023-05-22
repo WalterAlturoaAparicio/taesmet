@@ -3,8 +3,7 @@ import 'package:taesmet/components/appbar.dart';
 import 'package:intl/intl.dart';
 import 'package:taesmet/components/buttons/green_button.dart';
 import 'package:taesmet/components/buttons/main_button.dart';
-import 'package:taesmet/components/navbar.dart';
-import 'package:timer_builder/timer_builder.dart';
+import 'package:taesmet/components/clock.dart';
 import 'package:timezone/standalone.dart' as tz;
 
 class ControlPage extends StatefulWidget {
@@ -29,7 +28,6 @@ class _ControlPageState extends State<ControlPage> {
         tz.TZDateTime.from(DateTime.now(), tz.getLocation('America/Bogota')));
 
     return Scaffold(
-      drawer: const Navbar(),
       appBar: MyAppBar(fecha: fecha),
       body: Center(
         child: Column(
@@ -74,23 +72,4 @@ class _ControlPageState extends State<ControlPage> {
   }
 }
 
-class AgendaClock extends StatelessWidget {
-  const AgendaClock({
-    super.key,
-  });
-  String getSystemTime() {
-    return DateFormat("hh:mm:ss a").format(
-        tz.TZDateTime.from(DateTime.now(), tz.getLocation('America/Bogota')));
-  }
 
-  @override
-  Widget build(BuildContext context) {
-    return TimerBuilder.periodic(const Duration(seconds: 1),
-        builder: (context) {
-      return Text(
-        getSystemTime(),
-        style: const TextStyle(color: Colors.black, fontSize: 35),
-      );
-    });
-  }
-}
